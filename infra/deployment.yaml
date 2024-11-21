@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: demoapp
-        image: cncfdemoregistry.azurecr.io/demoapp:1.0
+        image: learnitguide/busapp:2.1
         ports:
-        - containerPort: 4000
+        - containerPort: 8001
