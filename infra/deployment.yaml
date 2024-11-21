@@ -20,7 +20,7 @@ spec:
     spec: 
       containers: 
         - name: DemoApp 
-          image: 
+          image: cncfdemoregistry.azurecr.io/demoapp:1.0
           ports: 
             - containerPort: 8001 
           resources: 
