@@ -1,7 +1,7 @@
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: DemoService 
+  name: demo-service 
   namespace: cncf-demo
 spec: 
   selector: 

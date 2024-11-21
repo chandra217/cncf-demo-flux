@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment 
 metadata: 
-  name: DemoApp 
+  name: demo-app 
   namespace: cncf-demo
 spec: 
   replicas: 2
@@ -19,7 +19,7 @@ spec:
         app: demo 
     spec: 
       containers: 
-        - name: DemoApp 
+        - name: demo-app 
           image: cncfdemoregistry.azurecr.io/demoapp:1.0
           ports: 
             - containerPort: 4000 
