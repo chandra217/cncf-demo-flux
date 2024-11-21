@@ -1,32 +1,20 @@
-apiVersion: apps/v1 
-kind: Deployment 
-metadata: 
-  name: demo-app 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
   namespace: cncf-demo
-spec: 
-  replicas: 2
-  strategy: 
-    type: RollingUpdate 
-    rollingUpdate: 
-      maxUnavailable: 50% 
-      maxSurge: 50% 
-  selector: 
-    matchLabels: 
-      app: demo 
-  template: 
-    metadata: 
-      labels: 
-        app: demo 
-    spec: 
-      containers: 
-        - name: demo-app 
-          image: cncfdemoregistry.azurecr.io/demoapp:1.0
-          ports: 
-            - containerPort: 4000 
-          resources: 
-            requests: 
-              cpu: 250m 
-              memory: 512Mi 
-            limits: 
-              memory: 2048Mi 
-              cpu: 500m
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: demoapp
+        image: cncfdemoregistry.azurecr.io/demoapp:1.0
+        ports:
+        - containerPort: 4000
