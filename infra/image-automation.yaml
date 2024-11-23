@@ -1,0 +1,24 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: testapp-image-repo
+  namespace: cluster-config
+spec:
+  interval: 10s
+  provider: azure
+  image: cncfdemoregistry.azurecr.io/demoapp
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: testapp-image-policy
+  namespace: cluster-config
+spec:
+  imageRepositoryRef:
+    name: testapp-image-repo
+    namespace: cluster-config
+  policy:
+    semver:
+      range: '2.x'
